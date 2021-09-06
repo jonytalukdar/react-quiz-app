@@ -2,6 +2,7 @@ import './App.css';
 import Layout from './Layout/Layout';
 import Home from './Pages/Home';
 import Login from './Pages/Login';
+import Quiz from './Pages/Quiz';
 import Signup from './Pages/Signup';
 
 function App() {
@@ -9,8 +10,9 @@ function App() {
     <>
       <Layout>
         {/* <Home /> */}
-        {/* <Signup /> */}
-        <Login />
+        <Signup />
+        {/* <Login /> */}
+        <Quiz />
       </Layout>
     </>
   );
