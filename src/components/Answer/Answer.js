@@ -3,7 +3,7 @@ import styles from './Answer.module.css';
 
 const Answer = ({ type, id, text }) => {
   return (
-    <label class={styles.answer} for={id}>
+    <label className={styles.answer} htmlFor={id}>
       <input type={type} id={id} /> {text}
     </label>
   );

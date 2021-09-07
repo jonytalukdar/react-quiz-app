@@ -6,10 +6,10 @@ const Video = () => {
   return (
     <>
       <a href="quiz.html">
-        <div class={styles.video}>
+        <div className={styles.video}>
           <img src={img} alt="" />
           <p>#23 React Hooks Bangla - React useReducer hook Bangla</p>
-          <div class={styles.qmeta}>
+          <div className={styles.qmeta}>
             <p>10 Questions</p>
             <p>Score : Not taken yet</p>
           </div>

@@ -5,7 +5,7 @@ const Textarea = ({ type, placeholder, text }) => {
   return (
     <div className={styles.textInput}>
       <input type={type} placeholder={placeholder} />
-      <span class="material-icons-outlined"> {text} </span>
+      <span className="material-icons-outlined"> {text} </span>
     </div>
   );
 };

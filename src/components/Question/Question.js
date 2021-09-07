@@ -4,9 +4,9 @@ import styles from './Question.module.css';
 
 const Question = () => {
   return (
-    <div class={styles.question}>
-      <div class={styles.qtitle}>
-        <span class="material-icons-outlined"> help_outline </span>
+    <div className={styles.question}>
+      <div className={styles.qtitle}>
+        <span className="material-icons-outlined"> help_outline </span>
         Here goes the question from Learn with Sumit?
       </div>
 
