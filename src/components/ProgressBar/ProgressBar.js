@@ -7,7 +7,7 @@ const ProgressBar = () => {
   return (
     <div className={styles.progressBar}>
       <div className={styles.backButton}>
-        <span class="material-icons-outlined"> arrow_back </span>
+        <span className="material-icons-outlined"> arrow_back </span>
       </div>
       <div className={styles.rangeArea}>
         <div className={styles.tooltip}>24% Cimplete!</div>
@@ -18,7 +18,7 @@ const ProgressBar = () => {
       <Link to="/result">
         <Button>
           <span>Next Question</span>
-          <span class="material-icons-outlined"> arrow_forward </span>
+          <span className="material-icons-outlined"> arrow_forward </span>
         </Button>
       </Link>
     </div>

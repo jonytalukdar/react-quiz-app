@@ -1,9 +1,10 @@
 import React from 'react';
 
-const CheckBox = ({ type }) => {
+const CheckBox = ({ type, value, onChange }) => {
   return (
     <label>
-      <input type={type} /> <span>I agree to the Terms & Conditions</span>
+      <input type={type} value={value} checked={value} onChange={onChange} />{' '}
+      <span>I agree to the Terms & Conditions</span>
     </label>
   );
 };

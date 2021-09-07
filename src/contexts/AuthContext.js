@@ -13,29 +13,29 @@ export const AuthContext = createContext();
 
 const AuthContextProvider = (props) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [user, setUser] = useState();
+  const [currentUser, setCurrentUser] = useState();
 
   useEffect(() => {
     const auth = getAuth();
     const clear = onAuthStateChanged(auth, (user) => {
-      setUser(user);
+      setCurrentUser(user);
       setIsLoading(false);
     });
     return clear;
   }, []);
 
   //   signup function
-  const singup = async (username, email, password) => {
+  const signup = async (username, email, password) => {
     const auth = getAuth();
     await createUserWithEmailAndPassword(auth, email, password);
 
     // update profile
-    await updateProfile(auth.user, {
+    await updateProfile(auth.currentUser, {
       displayName: username,
     });
 
-    const loginUser = auth.user;
-    setUser({ ...loginUser });
+    const user = auth.currentUser;
+    setCurrentUser({ ...user });
   };
 
   //   login function
@@ -46,12 +46,13 @@ const AuthContextProvider = (props) => {
 
   // logout function
   const logout = () => {
+    console.log('logout success');
     const auth = getAuth();
     return signOut(auth);
   };
 
   return (
-    <AuthContext.Provider value={{ user, singup, login, logout }}>
+    <AuthContext.Provider value={{ currentUser, signup, login, logout }}>
       {!isLoading && props.children}
     </AuthContext.Provider>
   );
