@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Button from '../Button/Button';
 import Textarea from '../Input/Textarea';
 import styles from './LoginForm.module.css';
@@ -12,7 +13,7 @@ const LoginForm = () => {
       <Button>Login</Button>
 
       <div class="info">
-        Don't have an account? <a href="signup.html">Signup</a> instead.
+        Don't have an account? <Link to="/signup">Signup</Link> instead.
       </div>
     </form>
   );
