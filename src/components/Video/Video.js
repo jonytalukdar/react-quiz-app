@@ -2,19 +2,21 @@ import React from 'react';
 import styles from './Video.module.css';
 import img from '../../assets/Images/3.jpg';
 
-const Video = () => {
+const Video = ({ video }) => {
+  const { title, youtubeID, noq } = video;
   return (
     <>
-      <a href="quiz.html">
-        <div className={styles.video}>
-          <img src={img} alt="" />
-          <p>#23 React Hooks Bangla - React useReducer hook Bangla</p>
-          <div className={styles.qmeta}>
-            <p>10 Questions</p>
-            <p>Score : Not taken yet</p>
-          </div>
+      <div className={styles.video}>
+        <img
+          src={`http://img.youtube.com/vi/${youtubeID}/maxresdefault.jpg`}
+          alt=""
+        />
+        <p>{title}</p>
+        <div className={styles.qmeta}>
+          <p>{noq} Questions</p>
+          <p>Total Score : {noq * 5}</p>
         </div>
-      </a>
+      </div>
     </>
   );
 };
