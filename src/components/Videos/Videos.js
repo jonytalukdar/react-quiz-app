@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Video from '../Video/Video';
-import styles from './Videos.module.css';
+
 import { Link } from 'react-router-dom';
 import useVideosList from '../../Hooks/useVideosList';
 import InfiniteScroll from 'react-infinite-scroll-component';
@@ -11,31 +11,27 @@ const Videos = () => {
 
   return (
     <div>
-      {loading ? (
-        <div>Loading...</div>
-      ) : (
+      {videos.length > 0 && (
         <InfiniteScroll
           dataLength={videos.length}
           hasMore={hasMore}
           next={() => setPage(page + 8)}
-          endMessage={
-            <p style={{ textAlign: 'center' }}>
-              <b>Yay! You have seen it all</b>
-            </p>
-          }
         >
           {videos.map((video) =>
-            video.noq ? (
-              <Link to="/quiz" key={video.youtubeID}>
+            video.noq > 0 ? (
+              <Link to={`/quiz/${video.youtubeID}`} key={video.youtubeID}>
                 <Video video={video} />
               </Link>
             ) : (
-              <Video video={video} />
+              <Video key={video.youtubeID} video={video} />
             )
           )}
         </InfiniteScroll>
       )}
-      {error && <p>Something wrong for fetching</p>}
+
+      {!loading && videos.length === 0 && <div>No data found!</div>}
+      {error && <div>There was an error!</div>}
+      {loading && <h2 style={{ textAlign: 'center' }}>Loading...</h2>}
     </div>
   );
 };

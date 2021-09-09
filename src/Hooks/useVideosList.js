@@ -31,13 +31,12 @@ const useVideosList = (page) => {
       //   request for firebase database
 
       const snapshot = await get(videoQuery);
-      console.log(snapshot.val);
+      setLoading(false);
 
       if (snapshot.exists()) {
         setVideos((prevState) => {
           return [...prevState, ...Object.values(snapshot.val())];
         });
-        setLoading(false);
       } else {
         setHasMore(false);
       }
@@ -49,7 +48,9 @@ const useVideosList = (page) => {
   };
 
   useEffect(() => {
-    fetchVideos();
+    setTimeout(() => {
+      fetchVideos();
+    }, 2000);
   }, [page]);
 
   return {

@@ -3,7 +3,11 @@ import styles from './Button.module.css';
 
 const Button = (props) => {
   return (
-    <button disabled={props.disabled} className={styles.button}>
+    <button
+      disabled={props.disabled}
+      className={styles.button}
+      onClick={props.onClick}
+    >
       {props.children}
     </button>
   );
